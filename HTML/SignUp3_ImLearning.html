@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+	<title>passion</title>
+	<link rel="stylesheet" type="text/css" href="css/style_SignUp.css">
+</head>	
+<body>
+
+	<div style="height:40px">
+		<h1><a href=""><img src="img/help.jpg"></a>i'm learning</h1>	
+	</div>
+	<!form class="form-horizontal" role="form" id="test-form">
+
+
+
+
+		<div class="container">
+  		<img src="img/pic.jpg" alt="Outdoors" style="width:100%">
+  		<button class="btn" onClick="myFunction1()">Outdoors</button>
+		</div>
+	<p />
+	</ br>
+	<div>
+	<fieldset id="Category1" style="display:none">
+	<input type="checkbox" id="Camping">Camping<br>
+	<input type="checkbox" id="Hiking">Hiking<br>
+	<input type="checkbox" id="Climbing">Climbing<br>
+	</div>
+	</ br>
+	<script>
+	function myFunction1() {
+    		var x = document.getElementById("Category1");
+    		if (x.style.display === "none") {
+        		x.style.display = "block";
+    		} else {
+        		x.style.display = "none";
+    						}
+    		}
+	</script>		
+	<div>
+	</div>
+
+		<div class="container">
+  		<img src="img/pic.jpg" alt="Sports" style="width:100%">
+  		<button class="btn" onClick="myFunction2()">Sports</button>
+		</div>
+	<p />
+	</ br>
+	<div>
+	<fieldset id="Category2" style="display:none">
+	<input type="checkbox" id="Football">Football<br>
+	<input type="checkbox" id="Running">Running<br>
+	<input type="checkbox" id="Swimming">Swimming<br>
+	</div>
+	</ br>
+	<script>
+	function myFunction2() {
+    		var x = document.getElementById("Category2");
+    		if (x.style.display === "none") {
+        		x.style.display = "block";
+    		} else {
+        		x.style.display = "none";
+    						}
+    		}
+	</script>	
+
+
+
+
+	<button type="submit" class="btnForm" >Next</button>
+
+	
+	
+	<div>  
+</body>
+
+
+<footer>
+</footer>
+</html>
