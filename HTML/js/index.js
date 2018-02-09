@@ -26,11 +26,11 @@ $(document).ready(function() {
                     },
                 }
             },
-            lastName: {
+            city: {
                 message: 'Last Name is not valid',
                 validators: {
                     notEmpty: {
-                        message: 'Last Name is required and cannot be empty'
+                        message: 'City is required and cannot be empty'
                     },
                     stringLength: {
                         min: 1,
@@ -39,7 +39,7 @@ $(document).ready(function() {
                     },
                     regexp: {
                         regexp: /^[A-z]+$/,
-                        message: 'Last Names can only consist of alphabetical characters'
+                        message: 'City can only consist of alphabetical characters'
                     },
                 }
             },
@@ -53,14 +53,19 @@ $(document).ready(function() {
                     }
                 }
             },
-            address: {
-                message: 'Address is not valid',
+            password: {
+                message: 'Password is not valid',
                 validators: {
                     notEmpty: {
-                        message: 'Address is required and cannot be empty'
+                        message: 'Password is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 8,
+                        max: 12,
+                        message: 'Password must be more than 8 and less than 12 characters long'
                     }
                 }
-            }, 
+            }
 
         }
     })
@@ -76,7 +81,7 @@ $(document).ready(function() {
 
         // Use Ajax to submit form data
         var url = 'https://script.google.com/macros/s/AKfycbwsyZ7oxE6dm-ddj5EvCV39Csuc0Oj-6RS2pjJyV5taxAaxqDM/exec';
-        var redirectUrl = 'SignUp1_ICan.html';
+        var redirectUrl = 'SignUp2_ICan.html';
         // show the loading 
         $('#postForm').prepend($('<span></span>').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate'));
         var jqxhr = $.post(url, $form.serialize(), function(data) {
