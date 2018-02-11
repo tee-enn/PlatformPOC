@@ -61,7 +61,7 @@ $(document).ready(function() {
                     },
                     stringLength: {
                         min: 8,
-                        max: 12,
+			max: 30,
                         message: 'Password must be more than 8 and less than 12 characters long'
                     }
                 }
