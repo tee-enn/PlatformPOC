@@ -439,26 +439,31 @@
 			</select>
 		<p>
  		<label for="password">Password</label><br/>
-  		<input type="password" name="password" id="password" placeholder="password"><br/><p/>
- 		<label for="cpassword">Confirm Password</label><br/>
-  		<input type="password" name="cpassword" id="cpassword" placeholder="cpassword" onChange="pwordcheck()" required><br/><p/>
+  		<input type="password" name="password" id="password" placeholder="password" onChange="valueChange()"></input><br/><p/>
+   		<label for="cpassword">Confirm Password</label><br/>
+  		<input type="password" name="cpassword" id="cpassword" placeholder="cpassword" onChange="pwordCheck()" required></input><br/><p/>
 		<p id="pwordcheck"></p>
 		<script>
-		function pwordcheck(){
-		alert("before!");
-		alert(document.getElementById("password").value + " = password");
-		alert("before2!");		
-		alert(document.getElementById("cpassword").value + " = cpassword");
-		if (document.getElementById("password").value != document.getElementById("cpassword").value) {
-		alert("in!");
-                        document.getElementById("pwordcheck").innerHTML= "The two passwords do not match.";
-			document.getElementById("postForm").disabled = true;
+		function valueChange(){
+			document.getElementById("pwordcheck").innerHTML= "";
+			alert(document.getElementById("cpassword").value + "=cpassword");
+			if (document.getElementById("cpassword").value != '') {
+			pwordCheck();
 			}
-		else {
-			document.getElementById("postForm").disabled = false;
 		}
+
+		function pwordCheck(){
+			alert(document.getElementById("password").value + "=password");
+			alert(document.getElementById("cpassword").value + "=cpassword");
+			document.getElementById("pwordcheck").innerHTML= "";
+			if (document.getElementById("password").value != document.getElementById("cpassword").value) {
+                        	document.getElementById("pwordcheck").innerHTML= "The two passwords do not match.";
+				document.getElementById("postForm").disabled = true;
+			}
+			else {
+				document.getElementById("postForm").disabled = false;
+			}
 		}
-		alert("after!");
 		</script>
 
 	<button type="submit" class="btn btn-default" id="postForm">Next</button>
