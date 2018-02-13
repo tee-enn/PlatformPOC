@@ -7,46 +7,103 @@
 </head>	
 <body>
 
-	<div style="height:40px">
+	<div style="height:90px">
 		<h1><a href=""><img src="img/help.jpg"></a>i'm ready</h1>	
 	</div>
 	<!form class="form-horizontal" role="form" id="test-form">
 
-<div class="row">
-    <div class="card">
-		<div class="container">
-		Weekdays <input type="checkbox" id="Weekdays"><br>
-		Weekends <input type="checkbox" id="Weekends"><br>
-		Most Evenings <input type="checkbox" id="Evenings"><br>
-		Most Mornings <input type="checkbox" id="Mornings"><br>
-      	</div>
-  	</div>
-	</div>
+<div style="height:40px">When are you available to meet? </div><br>
+		<label class="ready_label">Weekdays </label><input type="checkbox" id="Weekdays" class="ready_check"><br>
+			<div style="height:10px"></div>
+		<label class="ready_label">Weekends </label><input type="checkbox" id="Weekends" class="ready_check"><br>
+			<div style="height:10px"></div>
+		<label class="ready_label">Most Evenings </label><input type="checkbox" id="Evenings" class="ready_check"><br>
+			<div style="height:10px"></div>
+		<label class="ready_label">Most Mornings </label><input type="checkbox" id="Mornings" class="ready_check"><br>
+
 <p />
 	</ br>
 
-	<div>
-   	<div>
-
-  		<button class="btn" onClick="showDetails()">More Specific</button></center>
-	</ br>
-	<fieldset id="DetailedTime" style="display:none">
-	M T W Th F Sa Su <br>
-	AM<input type="checkbox" id="AM_MO"><input type="checkbox" id="AM_TU"><input type="checkbox" id="AM_WE"><input type="checkbox" id="AM_TH"><input type="checkbox" id="AM_FR"><input type="checkbox" id="AM_SA"><input type="checkbox" id="AM_SU"><br>
-	PM<input type="checkbox" id="PM_MO"><input type="checkbox" id="PM_TU"><input type="checkbox" id="PM_WE"><input type="checkbox" id="PM_TH"><input type="checkbox" id="PM_FR"><input type="checkbox" id="PM_SA"><input type="checkbox" id="PM_SU"><br>
-	</fieldset>
 	<script>
-	function showDetails() {
-    	       		document.getElementById("DetailedTime").style.display = "block";
+	function showSpecific() {
+    	       		document.getElementById("moreSpecific").style.display = "block";
     		}
-	</script>	
-	<div>
-	
-	<button type="submit" class="btnForm" >Next</button>
+	function clicked(theButton) {
+		
+		if (theButton.innerHTML == "Busy") {
+		theButton.innerHTML = "Free";
+		theButton.style.background = "#feca38";
+			}
+		else	{
+		theButton.innerHTML = "Busy";
+		theButton.style.background = "grey";		
+			}
+		}
+	</script>
+	<button class="btn" onClick="showSpecific()">Be more specific?</button>
 
-	
-	
-	<div>  
+	<table id="moreSpecific" style="margin-left:47px">
+  		<tr>
+			<th></th>
+    			<th>Morning</th>
+    			<th>Afternoon</th>
+			<th>Evening</th>
+  		</tr>
+  		<tr>
+			<td style="float:left">Monday</td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Tuesday</td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Wednesday</td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Thursday</td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Friday</td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Saturday</td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Sunday</td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+		</tr>
+	</table>
+
+
+
+	<!--
+	<fieldset id="moreSpecific" style="display:none">
+		M T W Th F Sa Su <br>
+		AM<input type="checkbox" id="AM_MO"><input type="checkbox" id="AM_TU"><input type="checkbox" id="AM_WE"><input type="checkbox" id="AM_TH"><input 				type="checkbox" id="AM_FR"><input type="checkbox" id="AM_SA"><input type="checkbox" id="AM_SU"><br>
+		PM<input type="checkbox" id="PM_MO"><input type="checkbox" id="PM_TU"><input type="checkbox" id="PM_WE"><input type="checkbox" id="PM_TH"><input 				type="checkbox" id="PM_FR"><input type="checkbox" id="PM_SA"><input type="checkbox" id="PM_SU"><br>
+	</fieldset>
+	-->
+	<div style="height:80px"></div>
+	<button type="submit" class="btn" >Next</button>
 </body>
 
 
