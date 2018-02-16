@@ -1,0 +1,64 @@
+<html>
+
+<body>
+
+<script>
+
+window.onload = function() {
+        var fileInput = document.getElementById('myFile');
+        var fileDisplayArea = document.getElementById('output');
+
+        fileInput.addEventListener('change', function(e) {
+            var file = fileInput.files[0];
+            var textType = /text.*/;
+
+            if (file.type.match(textType)) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    fileDisplayArea.innerText = reader.result;
+			
+			var lines = reader.result.split(" ");
+                    	var list = [];
+                    		for (var line = 0; line < lines.length; line++) {
+                        		list.push(lines[line]);
+					document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML +" * "+ list[line];
+					switch (list[line]) {
+						case "PIC":
+							//line+=1;
+							alert("in PIC");
+							var srchprof_img = document.createElement('img');
+							srchprof_img.setAttribute('src',list[line++]);
+							//document.getElementById("demo2").appendChild(srchprof_img);
+							break;
+							
+						case "NME":
+						case "INT":
+						case "CAN":
+						case "LRN":
+						case "TIM":	
+						default : 
+												
+					}
+					
+                    		}
+			
+                }
+
+                reader.readAsText(file);    
+            } else {
+                fileDisplayArea.innerText = "File not supported!"
+            }
+        });
+}
+
+</script>
+
+<input type="file" id="myFile">
+<hr>
+<textarea style="width:500px;height: 50px" id="output"></textarea>
+<div id="demo"></div>
+<div id="demo2"></div>
+</body>
+
+</html>

@@ -7,106 +7,101 @@
 </head>	
 <body>
 
-	<div style="height:90px">
-		<h1><a href=""><img src="img/help.jpg"></a>i'm ready</h1>	
-	</div>
-	<!form class="form-horizontal" role="form" id="test-form">
+	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>i'm ready</h1></div>
+	
+	<form action="SignUp5_IAm.html" id="imready_form">
 
-<div style="height:40px">When are you available to meet? </div><br>
-		<label class="ready_label">Weekdays </label><input type="checkbox" id="Weekdays" class="ready_check"><br>
+		<label class="ready_label">When are you available to meet?</label><br>
+		<div style="height:40px"></div> 
+		<label class="ready_label">Weekdays </label><input type="checkbox" id="Weekdays" class="ready_check"></input><br>
 			<div style="height:10px"></div>
-		<label class="ready_label">Weekends </label><input type="checkbox" id="Weekends" class="ready_check"><br>
+		<label class="ready_label">Weekends </label><input type="checkbox" id="Weekends" class="ready_check"></input><br>
 			<div style="height:10px"></div>
-		<label class="ready_label">Most Evenings </label><input type="checkbox" id="Evenings" class="ready_check"><br>
+		<label class="ready_label">Most Evenings </label><input type="checkbox" id="Evenings" class="ready_check"></input><br>
 			<div style="height:10px"></div>
-		<label class="ready_label">Most Mornings </label><input type="checkbox" id="Mornings" class="ready_check"><br>
+		<label class="ready_label">Most Mornings </label><input type="checkbox" id="Mornings" class="ready_check"></input><br>
 
-<p />
-	</ br>
 
 	<script>
-	function showSpecific() {
-    	       		document.getElementById("moreSpecific").style.display = "block";
+	function showSpecific(theBtn,specificSection) {
+			if (specificSection.style.display === "none") {
+    	       			specificSection.style.display = "block";
+				theBtn.innerHTML = "Close";
+				}
+			else	{
+				specificSection.style.display = "none";
+				theBtn.innerHTML = "Be more specific?";
+				}
     		}
+
 	function clicked(theButton) {
-		
 		if (theButton.innerHTML == "Busy") {
 		theButton.innerHTML = "Free";
 		theButton.style.background = "#feca38";
 			}
 		else	{
 		theButton.innerHTML = "Busy";
-		theButton.style.background = "grey";		
+		theButton.style.background = "#f2f2f2";		
 			}
 		}
 	</script>
-	<button class="btn" onClick="showSpecific()">Be more specific?</button>
-
-	<table id="moreSpecific" style="margin-left:47px">
+	<div style="height:30px"></div>
+	<button id="specificBtn" class="btn" onClick="showSpecific(this,moreSpecific)">Be more specific?</button>
+	<div style="height:30px"></div>
+	<table id="moreSpecific" style="margin-left:47px;display:none">
   		<tr>
-			<th></th>
-    			<th>Morning</th>
-    			<th>Afternoon</th>
-			<th>Evening</th>
+			<td width="110px"></td>
+    			<td width="90px">Morning</td>
+    			<td width="90px">Afternoon</td>
+			<td width="90px">Evening</td>
   		</tr>
   		<tr>
 			<td style="float:left">Monday</td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
 		</tr>
   		<tr>
 			<td style="float:left">Tuesday</td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
 		</tr>
   		<tr>
 			<td style="float:left">Wednesday</td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
 		</tr>
   		<tr>
 			<td style="float:left">Thursday</td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
 		</tr>
   		<tr>
 			<td style="float:left">Friday</td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
 		</tr>
   		<tr>
 			<td style="float:left">Saturday</td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
 		</tr>
   		<tr>
 			<td style="float:left">Sunday</td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-    			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
-			<td><button style="background:grey" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
 		</tr>
 	</table>
-
-
-
-	<!--
-	<fieldset id="moreSpecific" style="display:none">
-		M T W Th F Sa Su <br>
-		AM<input type="checkbox" id="AM_MO"><input type="checkbox" id="AM_TU"><input type="checkbox" id="AM_WE"><input type="checkbox" id="AM_TH"><input 				type="checkbox" id="AM_FR"><input type="checkbox" id="AM_SA"><input type="checkbox" id="AM_SU"><br>
-		PM<input type="checkbox" id="PM_MO"><input type="checkbox" id="PM_TU"><input type="checkbox" id="PM_WE"><input type="checkbox" id="PM_TH"><input 				type="checkbox" id="PM_FR"><input type="checkbox" id="PM_SA"><input type="checkbox" id="PM_SU"><br>
-	</fieldset>
-	-->
-	<div style="height:80px"></div>
-	<button type="submit" class="btn" >Next</button>
+	<div style="height:30px"></div>
+	<button class="btn" type="submit">Next</button>
+	</form>
 </body>
-
-
 <footer>
 </footer>
 </html>

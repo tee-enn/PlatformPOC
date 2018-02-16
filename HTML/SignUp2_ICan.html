@@ -8,16 +8,11 @@
 
 <body>
 
-	<div style="height:40px">
-		<h1><a href=""><img src="img/help.jpg"></a>i can</h1>	
-	</div>
-	<form action="SignUp3_ImLearning.html" id="ican_form">
-	</ br>
+	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>i can</h1></div>
 
-	</ br>
+	<form action="SignUp3_ImLearning.html" id="ican_form">	
 	<script>
 	function expandCategory(x) {
-    		//var x = document.getElementById("Category1");
     		if (x.style.display === "none") {
         		x.style.display = "block";
     		} else {
@@ -51,8 +46,8 @@
 
 	</script>		
 	<div class="container">
-		<img src="img/pic.jpg" class="cat_img" alt="Outdoors" style="width:100%" onClick="expandCategory(Category1)">
-		<div class="cat_text">Outdoors</div>
+		<img src="img/pic.jpg" class="cat_img" alt="Outdoors" onClick="expandCategory(Category1)">
+		<div class="cat_text" onClick="expandCategory(Category1)">Outdoors</div>
 	</div>
 	<p />
 	</ br>
@@ -67,8 +62,8 @@
 	</fieldset>
 	</div>
 	<div class="container">
-		<img src="img/pic.jpg" class="cat_img" alt="Sports" style="width:100%" onClick="expandCategory(Category2)">
-		<div class="cat_text">Sports</div>
+		<img src="img/pic.jpg" class="cat_img" alt="Sports" onClick="expandCategory(Category2)">
+		<div class="cat_text" onClick="expandCategory(Category2)">Sports</div>
 	</div>
 	<p />
 	</ br>
@@ -83,8 +78,8 @@
 	</fieldset>
 	</div>
 	<div class="container">
-		<img src="img/pic.jpg" class="cat_img" alt="Social" style="width:100%" onClick="expandCategory(Category3)">
-		<div class="cat_text">Social</div>
+		<img src="img/pic.jpg" class="cat_img" alt="Social" onClick="expandCategory(Category3)">
+		<div class="cat_text" onClick="expandCategory(Category3)">Social</div>
 	</div>
 	<p />
 	</ br>
@@ -101,7 +96,7 @@
 
 	<p />
 	</ br>
-	<button type="submit">Next</button>
+	<button class="btn" type="submit">Next</button>
 	</form>
 
 </body>

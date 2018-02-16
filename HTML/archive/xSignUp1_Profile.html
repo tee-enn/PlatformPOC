@@ -1,18 +1,10 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <head>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>passion</title>
 	<link rel="stylesheet" type="text/css" href="css/style_SignUp.css">
-
-  <!-- bootstrap & fontawesome css -->
-  <!link href="http://cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
-  <!link rel="stylesheet" href="http://cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
-
-  <!-- BootstrapValidator CSS -->
-  <!link rel="stylesheet" href="http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
-
-  <!-- jQuery and Bootstrap JS -->
+	<!-- jQuery and Bootstrap JS -->
   <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
@@ -34,35 +26,37 @@
       to { transform: scale(1) rotate(360deg);}
   }
   </style>
+
+
 </head>	
 <body>
 
-	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>you're in!</h1></div>
-
-	<form class="form-horizontal" role="form" id="test-form" onaction="SignUp2_ICan.html">
+	<div style="height:40px">
+		<h1><a href=""><img src="img/help.jpg"></a>you're in.</h1>	
+	</div>
+	
+	<form class="profile_creation" id="profile_creation">
 		<div>
 		<img src="img/blankprofile.jpg">
   		</div>
 		<div>
- 			<label for="fileToUpload">Take Selfie</label><br/>
- 			<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();" accept="image/*" capture="camera" />
+ 			<label for="cameraInput">Take Selfie</label><br/>
+			  <input type="file" name="image" accept="image/*" capture="user">
+  				<input type="submit" value="Upload">	 			
  		</div>
-		
-		<br>
+
+
 		<div class="form-group">
       			<label for="name">Name</label><div>
-          		<div class="input-group">
-			<input type="text" class="form-control" name="name" placeholder=" Jane"/>
-			</div>
+			<input type="text" name="name" onChange="nameCheck()" placeholder=" Jane"/>
+			<p id="demo"></p>
     		</div>
-		
-		<br>
+
 		<div class="form-group">
       			<label for="email">Email</label><div>
-          		<input type="text" class="form-control" name="email" placeholder=" name@passion.com"/>
+          		<input type="text" name="email" placeholder=" name@passion.com"/>
     		</div>
-		
-		<br>
+
 		<div class="form-group">
 		<label for="country">Country</label><br/>	
 			<select class="form-control" name="country" id="country>
@@ -114,7 +108,7 @@
 			<option value="CO">COLOMBIA</option>
 			<option value="KM">COMOROS</option>
 			<option value="CG">CONGO</option>
-			<!option value="CD">CONGO, THE DEMOCRATIC REPUBLIC OF THE</option>
+			<option value="CD">CONGO, THE DEMOCRATIC REPUBLIC OF THE</option>
 			<option value="CK">COOK ISLANDS</option>
 			<option value="CR">COSTA RICA</option>
 			<option value="CI">CÔTE D'IVOIRE</option>
@@ -157,7 +151,7 @@
 			<option value="GW">GUINEA-BISSAU</option>
 			<option value="GY">GUYANA</option>
 			<option value="HT">HAITI</option>
-			<!option value="HM">HEARD ISLAND AND MCDONALD ISLANDS</option>
+			<option value="HM">HEARD ISLAND AND MCDONALD ISLANDS</option>
 			<option value="HN">HONDURAS</option>
 			<option value="HK">HONG KONG</option>
 			<option value="HU">HUNGARY</option>
@@ -307,13 +301,13 @@
 			</select>
 		</div>
 		<br>
-
+		
 		<div class="form-group">
-      			<label for="city">City</label><div>
-			<input type="text" name="city" placeholder=" Melbourne"/>
-    		</div>
-		<br>
-
+		<label for="suburb">Suburb</label><br/>	
+		<input type="Text" class="form-control" name="suburb" placeholder=" Carlton"><br/><p/>
+		</div>
+		
+		<div class="form-group">
 		<label for="birthyear">Birth Year</label>	
 			<select name="birthyear" id="birthyear">
 			<option value="2012">2012</option>
@@ -429,42 +423,24 @@
 			<option value="1901">1901</option>
 			<option value="1900">1900</option>
 			</select>
+		</div>
 		<p>
+
+		<div class="form-group">
 		<label for="gender">Gender</label>
 			<select name="gender" id="gender">
 			<option value="F">Female</option>
 			<option value="M">Male</option>
 			<option value="O">Other</option>
 			</select>
+		</div>
 		<p>
+		<div class="form-group">
  		<label for="password">Password</label><br/>
-  		<input type="password" name="password" id="password" placeholder="password" onChange="valueChange()"></input><br/><p/>
-   		<label for="cpassword">Confirm Password</label><br/>
-  		<input type="password" name="cpassword" id="cpassword" placeholder="cpassword" onChange="pwordCheck()" required></input><br/><p/>
-		<p id="pwordcheck"></p>
-		<script>
-		function valueChange(){
-			document.getElementById("pwordcheck").innerHTML= "";
-			alert(document.getElementById("cpassword").value + "=cpassword");
-			if (document.getElementById("cpassword").value != '') {
-			pwordCheck();
-			}
-		}
-
-		function pwordCheck(){
-			alert(document.getElementById("password").value + "=password");
-			alert(document.getElementById("cpassword").value + "=cpassword");
-			document.getElementById("pwordcheck").innerHTML= "";
-			if (document.getElementById("password").value != document.getElementById("cpassword").value) {
-                        	document.getElementById("pwordcheck").innerHTML= "The two passwords do not match.";
-				document.getElementById("postForm").disabled = true;
-			}
-			else {
-				document.getElementById("postForm").disabled = false;
-			}
-		}
-		</script>
-
+  		<input type="password" class="form-control" name="password" placeholder="password"><br/><p/>
+ 		<label for="cpassword">Confirm Password</label><br/>
+  		<input type="password" class="form-control" name="cpassword" placeholder="cpassword"><br/><p/>
+		</div>
 	<button type="submit" class="btn btn-default" id="postForm">Next</button>
 	</form>
 	
@@ -474,6 +450,6 @@
 
 
 <footer>
-<script src="js/SignUp1_Profile.js"></script>
+<script src="js/index.js"></script>
 </footer>
 </html>
