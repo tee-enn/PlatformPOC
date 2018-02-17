@@ -1,1 +1,1 @@
-PIC \img\p1.jpg NME Sam INT sdfsdfsdfsdf CAN hockey,swimming,dancing LRN camping,networking TIM weekends,evenings
+PIC img\p8.jpeg NME Sam INT sdfsdfsdfsdf CAN hockey,swimming,dancing LRN camping,networking TIM weekends,evenings JND 27thFeb,2013*PIC img\p3.jpeg NME Nim INT sdfsdfsdfsdf CAN hockey,swimming,dancing LRN camping,networking TIM weekends,evenings JND 5thMar,2016

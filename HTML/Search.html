@@ -12,62 +12,7 @@
 	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>passion</h1></div>
 
 	<form action="SignUp3_ImLearning.html" id="ican_form">	
-	<script>
-	function expandCategory(x) {
-    		if (x.style.display === "none") {
-        		x.style.display = "block";
-    		} else {
-        		x.style.display = "none";
-    						}
-    		}
 
-	function createCategoryList(ul,arr) {
-		var i = 0;
-		var cat_ul = document.getElementById(ul);
-		var catArr = arr;
-		
-		for (i;i<catArr.length;i++) {
-			var li = document.createElement('li');
-			var label = document.createElement('label');
-			var input = document.createElement('input');
-			
-			input.setAttribute('type', 'checkbox');
-			input.setAttribute('value', catArr[i]);
-			input.setAttribute('id', catArr[i]);
-			label.setAttribute('for', catArr[i]);
-			
-			cat_ul.appendChild(li);
-			cat_ul.appendChild(input);
-			cat_ul.appendChild(label);
-			label.appendChild(document.createTextNode(catArr[i]));
-			}
-		alert("cat_ul = " + document.getElementById("cat_ul").value);
-
-		}
-
-function readProfiles() {
-alert("dfgdf");
-var input = document.getElementById("input");
-var output = document.getElementById("output");
-
-input.addEventListener('change', function (e) {
-  if (this.files && this.files[0]) {
-    var myFile = this.files[0];
-    var reader = new FileReader();
-
-    reader.addEventListener('load', function (e) {
-      output.textContent = e.target.result;
-    });
-
-    reader.readAsBinaryString(myFile);
-  }
-});
-}
-	</script>		
-
-	<input type="file" id="input" onChange="readProfiles()"/>	
-	<div id="output">sfsdfsdf
-	</div>
 
 	<div class="search_prof">
 	<table>
@@ -89,43 +34,153 @@ input.addEventListener('change', function (e) {
 		</tr>
 	</table>
 	</div>
-	<p />
-	</ br>
-	<div class="container">
-		<img src="img/pic.jpg" class="cat_img" alt="Sports" onClick="expandCategory(Category2)">
-		<div class="cat_text" onClick="expandCategory(Category2)">Sports</div>
-	</div>
-	<p />
-	</ br>
-	<div>
-	<fieldset id="Category2" style="display:none">
-	<ul class="interests_checkbox" id="cat2_ul">
-		<script>
-			var cat2_arr = ["Netball","Wrestling","Surfing","Skiing","Soccer","Swimming","Running","Football","Basketball","Dancing"];
-			createCategoryList("cat2_ul",cat2_arr);
-		</script>
-	</ul>
-	</fieldset>
-	</div>
-	<div class="container">
-		<img src="img/pic.jpg" class="cat_img" alt="Social" style="width:100%" onClick="expandCategory(Category3)">
-		<div class="cat_text" onClick="expandCategory(Category3)">Social</div>
-	</div>
-	<p />
-	</ br>
-	<div>
-	<fieldset id="Category3" style="display:none">
-	<ul class="interests_checkbox" id="cat3_ul">
-		<script>
-			var cat3_arr = ["Networking","Entrepreneurship","Communication","Listening","Story telling","Laughing","Jokes","Business","Choir","Class"];
-			createCategoryList("cat3_ul",cat3_arr);
-		</script>
-	</ul>
-	</fieldset>
-	</div>
 
-	<p />
-	</ br>
+
+<script>
+
+window.onload = function() {
+        var fileInput = document.getElementById('myFile');
+        //var fileDisplayArea = document.getElementById('output');
+
+        fileInput.addEventListener('change', function(e) {
+            var file = fileInput.files[0];
+            var textType = /text.*/;
+
+            if (file.type.match(textType)) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    //fileDisplayArea.innerText = reader.result;
+			
+			var profiles = reader.result.split("*"); //contains list of profile
+			var profile;
+                    	for (profile = 0; profile < profiles.length; profile++) {
+			var profile_details = profiles[profile];
+			var lines = profile_details.split(" ");
+                    	var list = [];
+			var line;
+                    		for (line = 0; line < lines.length; line++) {
+                        		list.push(lines[line]);
+						
+					switch (list[line]) {
+						case "TIM":
+							line = line + 1;
+							list.push(lines[line]);
+							var text = list[line];
+							var free_time = text.split(",");
+							break;
+						case "PIC":
+							line = line + 1;
+							list.push(lines[line]);
+							var srchprof_img = list[line];
+							break;
+						case "NME": 
+							line = line + 1;
+							list.push(lines[line]);
+							var srchprof_name = list[line];
+							//var srchprof_name = document.createElement('div');
+							//srchprof_name.setAttribute('class','searchprof_name');
+							//srchprof_name.appendChild(document.createTextNode(list[line]));
+							//document.getElementById("demo2").appendChild(srchprof_name);
+							alert("profile = "+ profile + " line = "+line+" val = "+srchprof_name);
+							//document.getElementByID("search_res").appendChild(document.createTextNode(srchprof_name));
+							break;
+						case "INT":
+							line = line + 1;
+							list.push(lines[line]);
+							var srchprof_intro = list[line]
+							break;
+						case "CAN":
+							line = line + 1;
+							list.push(lines[line]); //get the list of interests
+							var catch_interests = [];
+							var text = list[line]; //convert list of lines to text from array
+							var can_list = text.split(",");
+							break;
+						case "LRN":
+							line = line + 1;
+							list.push(lines[line]);
+							var catch_interests = [];
+							var text = list[line];
+							var learn_list = text.split(",");
+							break;	
+						case "JND":
+							line = line + 1;
+							list.push(lines[line]);
+							var joined = list[line];
+							break;							
+						default:	
+												
+					}	//switch				
+	
+                    		} //individual profile loop
+//creating a table for every profile in the file
+var div_srchprof = document.createElement('div');
+div_srchprof.setAttribute("class","search_prof");
+
+
+var tble = document.createElement('table');
+var row = document.createElement('tr');
+
+var tdata1 = document.createElement('td');
+var prof_image = document.createElement('img');
+prof_image.setAttribute("src",srchprof_img);
+prof_image.setAttribute("class","searchprof_img");
+tdata1.appendChild(prof_image);
+row.appendChild(tdata1);
+
+/*
+				<div class="searchprof_name">Sarah</div><br>
+				<div class="searchprof_intro">Intro intro intro Intro intro introIntro intro intro\
+				Intro intro intro intro intro intro introintrointro intro...<p>Joined 12th March, 17</p></div>			
+*/
+
+var tdata2 = document.createElement('td');
+var prof_name = document.createElement('div');
+prof_name.setAttribute("class","searchprof_name");
+prof_name.appendChild(document.createTextNode(srchprof_name));
+tdata2.appendChild(prof_name);
+
+var prof_intro = document.createElement('div');
+prof_intro.setAttribute("class","searchprof_intro");
+prof_intro.appendChild(document.createTextNode(srchprof_intro));
+tdata2.appendChild(prof_intro);
+
+var prof_jnd = document.createElement('p');
+prof_intro.appendChild(document.createTextNode(joined));
+tdata2.appendChild(prof_jnd);
+
+row.appendChild(tdata2);
+
+
+tble.appendChild(row);
+div_srchprof.appendChild(tble);
+document.getElementById("search_res").appendChild(div_srchprof);
+
+
+
+
+
+
+				} //profile list loop
+			
+                } //if
+
+                reader.readAsText(file);    
+            } else {
+                document.getElementByID("search_res").innerText = "File not supported!"
+            }
+        });
+}
+
+</script>
+
+
+<input type="file" id="myFile">
+<div id="output"></div>
+<div id="search_res"></div>
+
+
 	<button class="btn" type="submit">Next</button>
 	</form>
 

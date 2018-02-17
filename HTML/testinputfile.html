@@ -1,12 +1,25 @@
+<!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<title>passion</title>
+	<link rel="stylesheet" type="text/css" href="css/style_SignUp.css">
+	<link type="text/javascript" href="js/searchprofiles.js">
+</head>	
 
 <body>
+
+
+	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>passion</h1></div>
+
+
+	<form id="ican_form">	
 
 <script>
 
 window.onload = function() {
         var fileInput = document.getElementById('myFile');
-        var fileDisplayArea = document.getElementById('output');
+        //var fileDisplayArea = document.getElementById('output');
 
         fileInput.addEventListener('change', function(e) {
             var file = fileInput.files[0];
@@ -16,49 +29,137 @@ window.onload = function() {
                 var reader = new FileReader();
 
                 reader.onload = function(e) {
-                    fileDisplayArea.innerText = reader.result;
+                    //fileDisplayArea.innerText = reader.result;
 			
-			var lines = reader.result.split(" ");
+			var profiles = reader.result.split("*"); //contains list of profile
+			var profile;
+                    	for (profile = 0; profile < profiles.length; profile++) {
+			var profile_details = profiles[profile];
+			var lines = profile_details.split(" ");
                     	var list = [];
-                    		for (var line = 0; line < lines.length; line++) {
+			var line;
+                    		for (line = 0; line < lines.length; line++) {
                         		list.push(lines[line]);
-					document.getElementById("demo").innerHTML = document.getElementById("demo").innerHTML +" * "+ list[line];
+						
 					switch (list[line]) {
-						case "PIC":
-							//line+=1;
-							alert("in PIC");
-							var srchprof_img = document.createElement('img');
-							srchprof_img.setAttribute('src',list[line++]);
-							//document.getElementById("demo2").appendChild(srchprof_img);
+						case "TIM":
+							line = line + 1;
+							list.push(lines[line]);
+							var text = list[line];
+							var free_time = text.split(",");
 							break;
-							
-						case "NME":
+						case "PIC":
+							line = line + 1;
+							list.push(lines[line]);
+							var srchprof_img = list[line];
+							break;
+						case "NME": 
+							line = line + 1;
+							list.push(lines[line]);
+							var srchprof_name = list[line];
+							//var srchprof_name = document.createElement('div');
+							//srchprof_name.setAttribute('class','searchprof_name');
+							//srchprof_name.appendChild(document.createTextNode(list[line]));
+							//document.getElementById("demo2").appendChild(srchprof_name);
+							alert("profile = "+ profile + " line = "+line+" val = "+srchprof_name);
+							//document.getElementByID("search_res").appendChild(document.createTextNode(srchprof_name));
+							break;
 						case "INT":
+							line = line + 1;
+							list.push(lines[line]);
+							var srchprof_intro = list[line]
+							break;
 						case "CAN":
+							line = line + 1;
+							list.push(lines[line]); //get the list of interests
+							var catch_interests = [];
+							var text = list[line]; //convert list of lines to text from array
+							var can_list = text.split(",");
+							break;
 						case "LRN":
-						case "TIM":	
-						default : 
+							line = line + 1;
+							list.push(lines[line]);
+							var catch_interests = [];
+							var text = list[line];
+							var learn_list = text.split(",");
+							break;	
+						case "JND":
+							line = line + 1;
+							list.push(lines[line]);
+							var joined = list[line];
+							break;							
+						default:	
 												
-					}
-					
-                    		}
+					}	//switch				
+	
+                    		} //individual profile loop
+//creating a table for every profile in the file
+var div_srchprof = document.createElement('div');
+div_srchprof.setAttribute("class","search_prof");
+
+
+var tble = document.createElement('table');
+var row = document.createElement('tr');
+
+var tdata1 = document.createElement('td');
+var prof_image = document.createElement('img');
+prof_image.setAttribute("src",srchprof_img);
+prof_image.setAttribute("class","searchprof_img");
+tdata1.appendChild(prof_image);
+row.appendChild(tdata1);
+
+/*
+				<div class="searchprof_name">Sarah</div><br>
+				<div class="searchprof_intro">Intro intro intro Intro intro introIntro intro intro\
+				Intro intro intro intro intro intro introintrointro intro...<p>Joined 12th March, 17</p></div>			
+*/
+
+var tdata2 = document.createElement('td');
+var prof_name = document.createElement('div');
+prof_name.setAttribute("class","searchprof_name");
+prof_name.appendChild(document.createTextNode(srchprof_name));
+tdata2.appendChild(prof_name);
+
+var prof_intro = document.createElement('div');
+prof_intro.setAttribute("class","searchprof_intro");
+prof_intro.appendChild(document.createTextNode(srchprof_intro));
+tdata2.appendChild(prof_intro);
+
+var prof_jnd = document.createElement('p');
+prof_intro.appendChild(document.createTextNode(joined));
+tdata2.appendChild(prof_jnd);
+
+row.appendChild(tdata2);
+
+
+tble.appendChild(row);
+div_srchprof.appendChild(tble);
+document.getElementById("search_res").appendChild(div_srchprof);
+
+
+
+
+
+
+				} //profile list loop
 			
-                }
+                } //if
 
                 reader.readAsText(file);    
             } else {
-                fileDisplayArea.innerText = "File not supported!"
+                document.getElementByID("search_res").innerText = "File not supported!"
             }
         });
 }
 
 </script>
 
+
 <input type="file" id="myFile">
-<hr>
-<textarea style="width:500px;height: 50px" id="output"></textarea>
-<div id="demo"></div>
-<div id="demo2"></div>
+<div id="output"></div>
+<div id="search_res"></div>
+
+</form>
 </body>
 
 </html>
