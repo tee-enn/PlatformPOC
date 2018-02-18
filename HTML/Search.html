@@ -4,15 +4,31 @@
 <head>
 	<title>passion</title>
 	<link rel="stylesheet" type="text/css" href="css/style_SignUp.css">
-	<link type="text/javascript" href="js/searchprofiles.js">
+	<script type="text/javascript" src="js/profile_search.js"></script>
+	<!link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>	
 
 <body>
 
-	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>passion</h1></div>
+	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>being</h1></div>
 
-	<form action="SignUp3_ImLearning.html" id="ican_form">	
+	<form id="search_form">
+	
+	<label for="search_int">Enter Interest</label>
+	<input style="margin-left:5px;style="height:20px;width:50px" type="text" id="search_int" name="search_int" placeholder="Eg. Drawing, gardening"></input>
 
+
+	<button class="btn submission" onClick="document.getElementById('get_cities').style.display='block'">Flt Location</button>
+		<div id="get_cities" class="modal">
+			<div class="modal-content">
+					<span onclick="document.getElementById('get_cities').style.display='none'">&times;</span><br>
+			</div>
+		</div>
+
+
+
+
+	</p>
 
 	<div class="search_prof">
 	<table>
@@ -22,8 +38,7 @@
 			</td>
 			<td>
 				<div class="searchprof_name">Sarah</div><br>
-				<div class="searchprof_intro">Intro intro intro Intro intro introIntro intro intro\
-				Intro intro intro intro intro intro introintrointro intro...<p>Joined 12th March, 17</p></div>			
+				<div class="searchprof_intro">Intro intro intro Intro intro introIntro intro introointro intro...<p>Joined 12th March, 17</p></div>			
 			</td>
 			<td>
 			<div class="searchprof_stats">
@@ -38,140 +53,6 @@
 
 <script>
 
-window.onload = function() {
-        var fileInput = document.getElementById('myFile');
-        //var fileDisplayArea = document.getElementById('output');
-
-        fileInput.addEventListener('change', function(e) {
-            var file = fileInput.files[0];
-            var textType = /text.*/;
-
-            if (file.type.match(textType)) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    //fileDisplayArea.innerText = reader.result;
-			
-			var profiles = reader.result.split("*"); //contains list of profile
-			var profile;
-                    	for (profile = 0; profile < profiles.length; profile++) {
-			var profile_details = profiles[profile];
-			var lines = profile_details.split(" ");
-                    	var list = [];
-			var line;
-                    		for (line = 0; line < lines.length; line++) {
-                        		list.push(lines[line]);
-						
-					switch (list[line]) {
-						case "TIM":
-							line = line + 1;
-							list.push(lines[line]);
-							var text = list[line];
-							var free_time = text.split(",");
-							break;
-						case "PIC":
-							line = line + 1;
-							list.push(lines[line]);
-							var srchprof_img = list[line];
-							break;
-						case "NME": 
-							line = line + 1;
-							list.push(lines[line]);
-							var srchprof_name = list[line];
-							//var srchprof_name = document.createElement('div');
-							//srchprof_name.setAttribute('class','searchprof_name');
-							//srchprof_name.appendChild(document.createTextNode(list[line]));
-							//document.getElementById("demo2").appendChild(srchprof_name);
-							alert("profile = "+ profile + " line = "+line+" val = "+srchprof_name);
-							//document.getElementByID("search_res").appendChild(document.createTextNode(srchprof_name));
-							break;
-						case "INT":
-							line = line + 1;
-							list.push(lines[line]);
-							var srchprof_intro = list[line]
-							break;
-						case "CAN":
-							line = line + 1;
-							list.push(lines[line]); //get the list of interests
-							var catch_interests = [];
-							var text = list[line]; //convert list of lines to text from array
-							var can_list = text.split(",");
-							break;
-						case "LRN":
-							line = line + 1;
-							list.push(lines[line]);
-							var catch_interests = [];
-							var text = list[line];
-							var learn_list = text.split(",");
-							break;	
-						case "JND":
-							line = line + 1;
-							list.push(lines[line]);
-							var joined = list[line];
-							break;							
-						default:	
-												
-					}	//switch				
-	
-                    		} //individual profile loop
-//creating a table for every profile in the file
-var div_srchprof = document.createElement('div');
-div_srchprof.setAttribute("class","search_prof");
-
-
-var tble = document.createElement('table');
-var row = document.createElement('tr');
-
-var tdata1 = document.createElement('td');
-var prof_image = document.createElement('img');
-prof_image.setAttribute("src",srchprof_img);
-prof_image.setAttribute("class","searchprof_img");
-tdata1.appendChild(prof_image);
-row.appendChild(tdata1);
-
-/*
-				<div class="searchprof_name">Sarah</div><br>
-				<div class="searchprof_intro">Intro intro intro Intro intro introIntro intro intro\
-				Intro intro intro intro intro intro introintrointro intro...<p>Joined 12th March, 17</p></div>			
-*/
-
-var tdata2 = document.createElement('td');
-var prof_name = document.createElement('div');
-prof_name.setAttribute("class","searchprof_name");
-prof_name.appendChild(document.createTextNode(srchprof_name));
-tdata2.appendChild(prof_name);
-
-var prof_intro = document.createElement('div');
-prof_intro.setAttribute("class","searchprof_intro");
-prof_intro.appendChild(document.createTextNode(srchprof_intro));
-tdata2.appendChild(prof_intro);
-
-var prof_jnd = document.createElement('p');
-prof_intro.appendChild(document.createTextNode(joined));
-tdata2.appendChild(prof_jnd);
-
-row.appendChild(tdata2);
-
-
-tble.appendChild(row);
-div_srchprof.appendChild(tble);
-document.getElementById("search_res").appendChild(div_srchprof);
-
-
-
-
-
-
-				} //profile list loop
-			
-                } //if
-
-                reader.readAsText(file);    
-            } else {
-                document.getElementByID("search_res").innerText = "File not supported!"
-            }
-        });
-}
 
 </script>
 
@@ -180,14 +61,11 @@ document.getElementById("search_res").appendChild(div_srchprof);
 <div id="output"></div>
 <div id="search_res"></div>
 
-
-	<button class="btn" type="submit">Next</button>
 	</form>
 
 </body>
 
 
 <footer>
-<script src="js/SignUp2_ICan.js"></script>
 </footer>
 </html>
