@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+	<title>passion</title>
+	<link rel="stylesheet" type="text/css" href="css/style_SignUp.css">
+</head>	
+
+<body>
+
+	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>i'm learning</h1></div>
+
+	<form action="SignUp4_ImReady.html" id="imready_form">
+	<script>
+	function expandCategory(x) {
+    		if (x.style.display === "none") {
+        		x.style.display = "block";
+    		} else {
+        		x.style.display = "none";
+    						}
+    		}
+
+	function createCategoryList(ul,arr) {
+		var i = 0;
+		var cat_ul = document.getElementById(ul);
+		var catArr = arr;
+		
+		for (i;i<catArr.length;i++) {
+			var li = document.createElement('li');
+			var label = document.createElement('label');
+			var input = document.createElement('input');
+			
+			input.setAttribute('type', 'checkbox');
+			input.setAttribute('value', catArr[i]);
+			input.setAttribute('id', catArr[i]);
+			label.setAttribute('for', catArr[i]);
+			
+			cat_ul.appendChild(li);
+			cat_ul.appendChild(input);
+			cat_ul.appendChild(label);
+			label.appendChild(document.createTextNode(catArr[i]));
+			}
+		alert("cat_ul = " + document.getElementById("cat_ul").value);
+
+		}
+
+	</script>		
+	<div class="container">
+		<img src="img/pic.jpg" class="cat_img" alt="Outdoors" style="width:100%" onClick="expandCategory(Category1)">
+		<div class="cat_text" onClick="expandCategory(Category1)">Outdoors</div>
+	</div>
+	<p />
+	</ br>
+	<div>
+	<fieldset id="Category1" style="display:none">
+	<ul class="interests_checkbox" id="cat1_ul">
+		<script>
+			var cat1_arr = ["Camping","Hiking","Surfing","Climbing","Diving","Bushwalking","Canyoning"];
+			createCategoryList("cat1_ul",cat1_arr);
+		</script>
+	</ul>
+	</fieldset>
+	</div>
+	<div class="container">
+		<img src="img/pic.jpg" class="cat_img" alt="Sports" style="width:100%" onClick="expandCategory(Category2)">
+		<div class="cat_text" onClick="expandCategory(Category2)">Sports</div>
+	</div>
+	<p />
+	</ br>
+	<div>
+	<fieldset id="Category2" style="display:none">
+	<ul class="interests_checkbox" id="cat2_ul">
+		<script>
+			var cat2_arr = ["Netball","Wrestling","Surfing","Skiing","Soccer","Swimming","Running","Football","Basketball","Dancing"];
+			createCategoryList("cat2_ul",cat2_arr);
+		</script>
+	</ul>
+	</fieldset>
+	</div>
+	<div class="container">
+		<img src="img/pic.jpg" class="cat_img" alt="Social" style="width:100%" onClick="expandCategory(Category3)">
+		<div class="cat_text" onClick="expandCategory(Category3)">Social</div>
+	</div>
+	<p />
+	</ br>
+	<div>
+	<fieldset id="Category3" style="display:none">
+	<ul class="interests_checkbox" id="cat3_ul">
+		<script>
+			var cat3_arr = ["Networking","Entrepreneurship","Communication","Listening","Story telling","Laughing","Jokes","Business","Choir","Class"];
+			createCategoryList("cat3_ul",cat3_arr);
+		</script>
+	</ul>
+	</fieldset>
+	</div>
+
+	<p />
+	</ br>
+	<button class="btn" type="submit">Next</button>
+	</form>
+
+</body>
+
+
+<footer>
+<script src="js/SignUp2_ICan.js"></script>
+</footer>
+</html>

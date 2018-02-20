@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+	<title>passion</title>
+	<link rel="stylesheet" type="text/css" href="css/style_SignUp.css">
+</head>	
+<body>
+
+	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>i'm ready</h1></div>
+	
+	<form action="SignUp5_IAm.html" id="imready_form">
+
+		<label class="ready_label">When are you available to meet?</label><br>
+		<div style="height:40px"></div> 
+		<label class="ready_label">Weekdays </label><input type="checkbox" id="Weekdays" class="ready_check"></input><br>
+			<div style="height:10px"></div>
+		<label class="ready_label">Weekends </label><input type="checkbox" id="Weekends" class="ready_check"></input><br>
+			<div style="height:10px"></div>
+		<label class="ready_label">Most Evenings </label><input type="checkbox" id="Evenings" class="ready_check"></input><br>
+			<div style="height:10px"></div>
+		<label class="ready_label">Most Mornings </label><input type="checkbox" id="Mornings" class="ready_check"></input><br>
+
+
+	<script>
+	function showSpecific(theBtn,specificSection) {
+			if (specificSection.style.display === "none") {
+    	       			specificSection.style.display = "block";
+				theBtn.innerHTML = "Close";
+				}
+			else	{
+				specificSection.style.display = "none";
+				theBtn.innerHTML = "Be more specific?";
+				}
+    		}
+
+	function clicked(theButton) {
+		if (theButton.innerHTML == "Busy") {
+		theButton.innerHTML = "Free";
+		theButton.style.background = "#feca38";
+			}
+		else	{
+		theButton.innerHTML = "Busy";
+		theButton.style.background = "#f2f2f2";		
+			}
+		}
+	</script>
+	<div style="height:30px"></div>
+	<button id="specificBtn" class="btn" onClick="showSpecific(this,moreSpecific)">Be more specific?</button>
+	<div style="height:30px"></div>
+	<table id="moreSpecific" style="margin-left:47px;display:none">
+  		<tr>
+			<td width="110px"></td>
+    			<td width="90px">Morning</td>
+    			<td width="90px">Afternoon</td>
+			<td width="90px">Evening</td>
+  		</tr>
+  		<tr>
+			<td style="float:left">Monday</td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Tuesday</td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Wednesday</td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Thursday</td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Friday</td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Saturday</td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+		</tr>
+  		<tr>
+			<td style="float:left">Sunday</td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+    			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+			<td><button class="btn" style="background:#f2f2f2" onClick="clicked(this)">Busy</button></td>
+		</tr>
+	</table>
+	<div style="height:30px"></div>
+	<button class="btn" type="submit">Next</button>
+	</form>
+</body>
+<footer>
+</footer>
+</html>
