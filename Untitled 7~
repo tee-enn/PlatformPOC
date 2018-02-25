@@ -1,0 +1,107 @@
+
+			//var db_profiles = "UID/12345/PIC/img\p2.jpeg/NME/Mas/INT/sdfsdfsdfsdf and then some info info info that i can test to limit the size of the intro/CAN/hockey,swimming,dancing/LRN/camping,networking/TIM/weekends,evenings/JND/27th Feb,2013/RSP/100%/APR/10/CNT/Australia/CTY/Melbourne
+UID/23456/PIC/img\p8.jpeg/NME/Sam/INT/sdfsdfsdfsdf and then some info info info that i can test to limit the size of the intro/CAN/hockey,swimming,dancing/LRN/camping,networking/TIM/weekends,evenings/JND/27th Feb,2013/RSP/100%/APR/10/CNT/Australia/CTY/Melbourne
+UID/34567/PIC/img\p3.jpeg/NME/Nim/INT/I love the typos that i make when i just allow myself to go craxy with the writing. exchitation!! :D am testing different names out for the application. it's fun and exciting! almost there with this one let's see what happens now/CAN/hockey,swimming,dancing/LRN/camping,networking/TIM/weekends,evenings/JND/5th Mar,2016/RSP/75%/APR/100/CNT/France/CTY/Paris
+UID/45678/PIC/img\p7.jpeg/NME/Ricardo/INT/intro intro intro intro intro intro intro intro sdfsdfsdfsdf/CAN/hockey,swimming,dancing/LRN/camping,networking/TIM/weekends,evenings/JND/13 thJul,2017/RSP/20%/APR/70/CNT/Australia/CTY/Melbourne";
+			//var profiles = db_profiles.split("\n"); //contains list of profile
+			//var profile;
+
+			/*
+         for (profile = 0; profile < profiles.length; profile++) {
+			var profile_details = profiles[profile];
+			var lines = profile_details.split("/");
+			var list = [];
+			var line;
+           		for (line = 0; line < lines.length; line++) {
+         		list.push(lines[line]);
+					//alert("lines[line] = "+lines[line]);
+					if  (list[line] == "UID"){
+							line = line + 1;
+							list.push(lines[line]);
+							var prof_uid = list[line];
+							if (prof_uid == display_uid) {
+								line = line + 1;
+								list.push(lines[line]);
+								switch (list[line]) {
+									case "TIM":
+										line = line + 1;
+										list.push(lines[line]);
+										var text = list[line];
+										var free_time = text.split(",");
+										break;
+									case "PIC":
+										line = line + 1;
+										list.push(lines[line]);
+										var srchprof_img = list[line];
+										break;
+									case "NME": 
+										line = line + 1;
+										list.push(lines[line]);
+										var srchprof_name = list[line];
+										break;
+									case "INT":
+										line = line + 1;
+										list.push(lines[line]);
+										var srchprof_intro = list[line]
+										break;
+									case "CAN":
+										line = line + 1;
+										list.push(lines[line]); //get the list of interests
+										var catch_interests = [];
+										var text = list[line]; //convert list of lines to text from array
+										var can_list = text.split(",");
+										break;
+									case "LRN":
+										line = line + 1;
+										list.push(lines[line]);
+										var catch_interests = [];
+										var text = list[line];
+										var learn_list = text.split(",");
+										break;	
+									case "JND":
+										line = line + 1;
+										list.push(lines[line]);
+										var joined = list[line];
+										break;	
+									case "RSP":
+										line = line + 1;
+										list.push(lines[line]);
+										var srchprof_resp = list[line];
+										break;	
+									case "APR":
+										line = line + 1;
+										list.push(lines[line]);
+										var srchprof_apprs = list[line];
+										break;	
+									case "CNT":
+										line = line + 1;
+										list.push(lines[line]);
+										var srchprof_country = list[line];
+										break;	
+									case "CTY":
+										line = line + 1;
+										list.push(lines[line]);
+										var srchprof_city = list[line];
+										break;						
+									default:	
+												
+								}	//switch				
+								}	//if user=uid
+								}	//if UID
+                    		}	//individual profile loop
+
+				u_profile.uid = prof_uid;
+				u_profile.nme = srchprof_name;
+				alert("profile.nme = "+u_profile.nme+" and srchprof_name = "+srchprof_name);
+				u_profile.cnt = srchprof_country.trim();
+				u_profile.cty = srchprof_city.trim();
+				u_profile.rsp = srchprof_resp;
+				u_profile.can = can_list;
+				u_profile.lrn = learn_list;
+				u_profile.tim = free_time;
+				u_profile.int = srchprof_intro;
+				u_profile.jnd = joined;
+
+
+				} //profile list loop
+				*/

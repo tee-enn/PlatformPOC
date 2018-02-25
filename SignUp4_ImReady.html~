@@ -7,10 +7,10 @@
 </head>	
 <body>
 
-
 	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>i'm ready</h1></div>
 	
-	
+	<form action="SignUp5_IAm.html" id="imready_form">
+
 		<label class="ready_label">When are you available to meet?</label><br>
 		<div style="height:40px"></div> 
 		<label class="ready_label">Weekdays </label><input type="checkbox" id="Weekdays" class="ready_check"></input><br>
@@ -99,7 +99,6 @@
 		</tr>
 	</table>
 	<div style="height:30px"></div>
-	<form action="SignUp5_IAm.html" id="imready_form">
 	<button class="btn" type="submit">Next</button>
 	</form>
 </body>

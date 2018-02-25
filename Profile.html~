@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+	<title>passion</title>
+	<script type="text/javascript" src="js/profile_display.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style_SignUp.css">
+</head>	
+<body onload="disp_uname()">
+
+	<div style="height:90px"><h1>
+		<a href=""><img class="header_help" src="img/help.jpg"></a>
+		<div id="div_profname"></div> 
+	</h1></div>
+
+	<form action="Search.html" id="iam_form">
+		<img src="img/p2.jpeg" alt="" style="float:left;">
+		<div id="jndt">Joined Date : </div>
+		<div id="rspnsv">Responsiveness : </div>
+		<div>Intro text goes here</div>
+		<br>
+		
+		<div style="height:40px"></div> 
+		<br>
+		<img src="img/trophy_y.png" alt="" onclick="displayDetails(p_ican)" style="cursor:pointer"><img src="img/wrench_y.png" alt="" onclick="">
+		<img src="img/watch_y.png" alt="" onclick=""><img src="img/meets.png" alt="" onclick="">
+		
+		<div id="p_ican"></div>
+		<div id="p_ilrn"></div>
+		<div id="p_tim"></div>
+		<div id="p_apr"></div>		
+      <br>
+      
+		<div style="height:40px"></div> 
+	<br>
+	<div style="height:40px"></div> 
+	<button type="submit" class="btn">Done!</button>
+	</form>
+ 
+</body>
+
+
+<footer>
+</footer>
+</html>
