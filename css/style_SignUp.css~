@@ -131,11 +131,10 @@ fieldset {
 
 //for category lists in I Can
 
-/*
-*, *:before, *:after {
+//*, *:before, *:after {
 // box-sizing: inherit;
 //}
-*/
+
 
 #moreSpecific.td {
 	background:#f2f2f2;
@@ -184,7 +183,6 @@ fieldset {
 .container_mod {
     padding: 16px;
 }
-
 
 /* The Modal (background) */
 .modal {

@@ -14,23 +14,34 @@
 	</h1></div>
 
 	<form action="Search.html" id="iam_form">
-		<img src="img/p2.jpeg" alt="" style="float:left;">
-		<div id="jndt">Joined Date : </div>
-		<div id="rspnsv">Responsiveness : </div>
-		<div>Intro text goes here</div>
+		<img id="profile_pic" alt="" style="float:left;" src="">
+
+		<label style="float:left"><img class="header_help" src="img/profile_y.png">Joined Date : </label><div id="jndt"></div><br><p>
+		<label style="float:left"><img class="header_help" src="img/responsiveness.png">Pulse : </label><div id="pulse"></div>
+<br><p>
+		<label style="float:left">About me </label><br><div id="intro"></div>
+
 		<br>
+
+		<div style="height:40px"></div><br>
+
+
+		<img src="img/trophy_y.png" alt="" onclick="displayDetails(p_ican,p_ilrn,p_tim,p_apr)" style="cursor:pointer">
+		<img src="img/wrench_y.png" alt="" onclick="displayDetails(p_ilrn,p_ican,p_tim,p_apr)" style="cursor:pointer">
 		
-		<div style="height:40px"></div> 
-		<br>
-		<img src="img/trophy_y.png" alt="" onclick="displayDetails(p_ican)" style="cursor:pointer"><img src="img/wrench_y.png" alt="" onclick="">
-		<img src="img/watch_y.png" alt="" onclick=""><img src="img/meets.png" alt="" onclick="">
-		
+		<img src="img/watch_y.png" alt="" onclick="displayDetails(p_tim,p_ican,p_ilrn,p_apr)" style="cursor:pointer">
+		<img src="img/meets.png" alt="" onclick="displayDetails(p_apr,p_ican,p_ilrn,p_tim)" style="cursor:pointer">
+
+
+		<div id="control_disp">
 		<div id="p_ican"></div>
+		
 		<div id="p_ilrn"></div>
+		
 		<div id="p_tim"></div>
-		<div id="p_apr"></div>		
-      <br>
-      
+		
+		<div id="p_apr"></div>
+		</div>
 		<div style="height:40px"></div> 
 	<br>
 	<div style="height:40px"></div> 

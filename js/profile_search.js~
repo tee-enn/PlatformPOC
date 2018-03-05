@@ -86,7 +86,6 @@ function readProfiles(theFile) {
 							list.push(lines[line]);
 							var srchprof_city = list[line];
 							break;
-
 						case "UID":
 							line = line + 1;
 							list.push(lines[line]);
@@ -104,6 +103,7 @@ if (profile == 0){
 
 u_profile.uid = prof_uid;
 u_profile.nme = srchprof_name;
+alert("profile.nme = "+u_profile.nme+" and srchprof_name = "+srchprof_name);
 u_profile.cnt = srchprof_country.trim();
 u_profile.cty = srchprof_city.trim();
 u_profile.rsp = srchprof_resp;
@@ -178,11 +178,9 @@ prof_stats.appendChild(document.createElement('br'));
 var div_btn = document.createElement('div');
 var more_btn = document.createElement('button');
 more_btn.setAttribute("class","btn");
-
-more_btn.setAttribute("value",prof_uid);
-
-more_btn.setAttribute("onClick","sendUID(this)");
-more_btn.setAttribute("style","bottom:0px");
+//more_btn.setAttribute("value",prof_uid);
+//more_btn.setAttribute("onClick","sendUID(this)");
+//more_btn.setAttribute("style","bottom:0px");
 more_btn.appendChild(document.createTextNode("More"));
 div_btn.appendChild(more_btn);
 prof_stats.appendChild(div_btn);
@@ -241,9 +239,3 @@ switch (txt) {
 	}
 }
 }
-
-function sendUID(the_profile)
-	{
-	window.location.href = 'Profile.html?uuid=' + the_profile.value;
-	//displayName("Sam_func");
-	}
