@@ -10,7 +10,7 @@
 
 <body>
 <?php
-  require_once('config.php');
+ require_once('config.php');
  $email = '';
  $password = '';
 
@@ -45,9 +45,6 @@
       }
   }
 
-  header("Location: index.php?flag=$flag");
-
-  exit;
 ?>
 	<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>being</h1></div>
 	
@@ -88,8 +85,73 @@
 	</table>
 	</div>
 
+<div>
+<?php
+
+$filter = [];
+
+$options = []; //['sort' => ['_id' => -1],];
+
+$query = new MongoDB\Driver\Query($filter, $options);
+
+$cursor = $manager->executeQuery('profiles.users', $query);
+    $i =1; 
+ foreach ($cursor as $document) { 
+	//echo $i;
+	if(property_exists($document,'UID'))
+		{
+	echo '<div class="search_prof">'; //closed
+	echo '<table>'; //closed
+	echo '<tr>'; //closed
+		if(property_exists($document,'PIC'))
+			{
+			echo '<td>'; //closed
+			echo '<img src="'.$document->PIC.'" class="searchprof_img"></img>';
+			echo '</td>';
+			} //PIC
+		if(property_exists($document,'NME'))
+			{
+			echo '<td>'; //closed
+			echo '<div class="searchprof_name">'.$document->NME.'</div>';			
+			if(property_exists($document,'INT'))
+				{
+				echo '<div class="searchprof_intro">'.substr($document->INT, 0, 100).'</div>';
+					if(property_exists($document,'JND'))
+						{
+						echo '<p>Joined : '.$document->JND.'</p>';
+						} //JND
+				} //INT
+			echo '</td>';
+			} //NME
+
+		if(property_exists($document,'RSP'))
+			{
+			echo '<td>'; //closed
+			echo '<div class="searchprof_stats">'; //closed
+			echo '<img style="float:left" src="meets.png">';
+			echo $document->RSP.'</br>';
+			echo '<img style="float:left" src="meets.png">';
+			echo $document->APR.'</br>';
+			echo '<button class="btn" value='.$document->UID.' onclick="sendUID(this)" style="bottom:0px">More</button>';
+			echo '</div>';
+			echo '</td>';
+			} //RSP
+		} //UID
+	echo '</tr>'; //closed
+	echo '</table>'; //closed
+	echo '</div>'; //closed
+	$i++;  
+
+  } //document loop
+
+?>
+</div>
+
 <input type="file" id="myFile" onClick="readProfiles(this)">
-<div id="search_res"></div>
+<div id="search_res">
+<br>
+</div>
+
 
 
 </body>
