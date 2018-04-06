@@ -20,7 +20,7 @@ session_start();
   require_once('config.php');
 
 
-echo 'test';
+echo 'this is index';
 ?>
 
 <form id="form1" name='form1' action="Search.php" method="post">
@@ -46,7 +46,7 @@ echo 'test';
 		<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span><br>
       		<label>Email</label>
       		<input type="text" placeholder="your@email.com" name="email" required><br>
-		<button type="submit">Send password</button>
+		<button type="submit">Send Email</button>
 		</div>
 	</div>
 	</div>

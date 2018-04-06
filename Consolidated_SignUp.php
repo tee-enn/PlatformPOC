@@ -58,9 +58,9 @@ d.style.display = "none";
 if (icon.id == "profile") {
 document.getElementById("profile").style.background = "#feca38";
 document.getElementById("trophy").style.background = "#ffffff";
-document.getElementById("wrench").style.background = "#ffffff";
-document.getElementById("watch").style.background = "#ffffff";
-document.getElementById("tick").style.background = "#ffffff";
+document.getElementById("wrench").style.background = "#f2f2f2";
+document.getElementById("watch").style.background = "#f2f2f2";
+document.getElementById("tick").style.background = "#f2f2f2";
 
 document.getElementById("trophy").src = "trophy_y.png";
 document.getElementById("wrench").src = "wrench_y.png";
@@ -68,14 +68,15 @@ document.getElementById("watch").src = "watch_y.png";
 document.getElementById("tick").src = "tick_y.png";
 
 document.getElementById("header_div").innerHTML = "you're in";
+document.getElementById("postSignUp").style.display = "none";
 
 	}
 else if (icon.id == "trophy") {
 document.getElementById("profile").style.background = "#feca38";
 document.getElementById("trophy").style.background = "#feca38";
 document.getElementById("wrench").style.background = "#ffffff";
-document.getElementById("watch").style.background = "#ffffff";
-document.getElementById("tick").style.background = "#ffffff";
+document.getElementById("watch").style.background = "#f2f2f2";
+document.getElementById("tick").style.background = "#f2f2f2";
 
 document.getElementById("trophy").src = "trophy_w.png";
 document.getElementById("wrench").src = "wrench_y.png";
@@ -83,13 +84,14 @@ document.getElementById("watch").src = "watch_y.png";
 document.getElementById("tick").src = "tick_y.png";
 
 document.getElementById("header_div").innerHTML = "i can";
+document.getElementById("postSignUp").style.display = "none";
 	}
 else if (icon.id == "wrench") {
 document.getElementById("profile").style.background = "#feca38";
 document.getElementById("trophy").style.background = "#feca38";
 document.getElementById("wrench").style.background = "#feca38";
 document.getElementById("watch").style.background = "#ffffff";
-document.getElementById("tick").style.background = "#ffffff";
+document.getElementById("tick").style.background = "#f2f2f2";
 
 document.getElementById("trophy").src = "trophy_w.png";
 document.getElementById("wrench").src = "wrench_w.png";
@@ -97,6 +99,8 @@ document.getElementById("watch").src = "watch_y.png";
 document.getElementById("tick").src = "tick_y.png";
 
 document.getElementById("header_div").innerHTML = "i learn";
+document.getElementById("wrench").onClick= "load_section(this,i_learn,i_can,prof_info,im_ready,i_am)";
+document.getElementById("postSignUp").style.display = "none";
 	}
 else if (icon.id == "watch") {
 document.getElementById("profile").style.background = "#feca38";
@@ -111,6 +115,7 @@ document.getElementById("watch").src = "watch_w.png";
 document.getElementById("tick").src = "tick_y.png";
 
 document.getElementById("header_div").innerHTML = "i'm ready";
+document.getElementById("postSignUp").style.display = "none";
 	}
 else {
 document.getElementById("profile").style.background = "#feca38";
@@ -125,15 +130,22 @@ document.getElementById("watch").src = "watch_w.png";
 document.getElementById("tick").src = "tick_w.png";
 
 document.getElementById("header_div").innerHTML = "i am";
+document.getElementById("postSignUp").style.display = "block";
 }
 }
+//onClick="load_section(this,im_ready,i_can,prof_info,i_learn,i_am)"
+//onClick="load_section(this,i_am,i_can,prof_info,i_learn,im_ready)"
 </script>
 
-<img id="profile" src="profile_w.png" style="background:#feca38;cursor:pointer" onClick="load_section(this,prof_info,i_can,i_learn,im_ready,i_am)">
-<img id="trophy" src="trophy_y.png" style="background:#ffffff;cursor:pointer" onClick="load_section(this,i_can,prof_info,i_learn,im_ready,i_am)">
-<img id="wrench" src="wrench_y.png" style="background:#ffffff;cursor:pointer" onClick="load_section(this,i_learn,i_can,prof_info,im_ready,i_am)">
-<img id="watch" src="watch_y.png" style="background:#ffffff;cursor:pointer" onClick="load_section(this,im_ready,i_can,prof_info,i_learn,i_am)">
-<img id="tick" src="tick_y.png" style="background:#ffffff;cursor:pointer" onClick="load_section(this,i_am,i_can,prof_info,i_learn,im_ready)">
+<img id="profile" src="profile_w.png" style="background:#feca38" class="iconbar" onClick="load_section(this,prof_info,i_can,i_learn,im_ready,i_am)">
+<img src="right_y">
+<img id="trophy" src="trophy_y.png" class="iconbar" onClick="load_section(this,i_can,prof_info,i_learn,im_ready,i_am)">
+<img src="right_y">
+<img id="wrench" src="wrench_y.png" class="iconbar" style="background:#f2f2f2">
+<img src="right_y">
+<img id="watch" src="watch_y.png" class="iconbar" style="background:#f2f2f2">
+<img src="right_y">
+<img id="tick" src="tick_y.png" class="iconbar" style="background:#f2f2f2">
 
 	<form class="form-horizontal" role="form" id="test-form" action="activation.php" method="post">
 	<div id="prof_info">
@@ -142,27 +154,27 @@ document.getElementById("header_div").innerHTML = "i am";
   		</div>
 		<div>
  			<label class="loginlbl" for="fileToUpload">Take Selfie</label><br/>
- 			<input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();" accept="image/*" capture="camera" />
+ 			<!input type="file" name="fileToUpload" id="fileToUpload" onchange="fileSelected();" accept="image/*" capture="camera" />
  		</div>
 		
 		<br>
 		<div class="form-group">
       			<label class="loginlbl" for="name">Name</label>
           		<div class="input-group">
-			<input type="text" class="form-control" name="name" placeholder=" Jane" required/>
+			<input type="text" class="form-control" id="NME" name="NME" placeholder=" Jane" required/>
 			</div>
     		</div>
 		
 		<br>
 		<div class="form-group">
       			<label class="loginlbl" for="email">Email</label>
-          		<input type="email" class="form-control" name="email" placeholder=" name@beu.com" required/>
+          		<input type="email" class="form-control" id="EML" name="EML" placeholder=" name@beu.com" required/>
     		</div>
 		
 		<br>
 		<div class="form-group">
 		<label class="loginlbl" for="country">Country</label>	
-			<select class="form-control" name="country" id="country>
+			<select class="form-control" name="CNT" id="country" style="width:150px">
 			<option value="AF">AFGHANISTAN</option>
 			<option value="AL">ALBANIA</option>
 			<option value="DZ">ALGERIA</option>
@@ -412,18 +424,18 @@ document.getElementById("header_div").innerHTML = "i am";
 		<br>
 
 		<label class="loginlbl" for="birthdate">Birth Year</label>
-		<input id="birthdate" type="date">
+		<input id="birthdate" type="date" style="width:150px">
 
 		<p>
 		<label class="loginlbl" for="gender">Gender</label>
-			<select name="gender" id="gender">
+			<select name="GND" id="gender" style="width:150px">
 			<option value="F">Female</option>
 			<option value="M">Male</option>
 			<option value="O">Other</option>
 			</select>
 		<p>
  		<label class="loginlbl" for="password">Password</label>
-  		<input type="password" name="password" id="password" placeholder="password" onChange="valueChange()"></input><br/><p/>
+  		<input type="password" name="PWD" id="PWD" placeholder="password" onChange="valueChange()"></input><br/><p/>
    		<label class="loginlbl" for="cpassword">Confirm Password</label>
   		<input type="password" name="cpassword" id="cpassword" placeholder="cpassword" onChange="pwordCheck()" required></input><br/><p/>
 		<p id="pwordcheck"></p>
@@ -442,10 +454,10 @@ document.getElementById("header_div").innerHTML = "i am";
 			document.getElementById("pwordcheck").innerHTML= "";
 			if (document.getElementById("password").value != document.getElementById("cpassword").value) {
                         	document.getElementById("pwordcheck").innerHTML= "The two passwords do not match.";
-				document.getElementById("postForm").disabled = true;
+				document.getElementById("postSignUp").disabled = true;
 			}
 			else {
-				document.getElementById("postForm").disabled = false;
+				document.getElementById("postSignUp").disabled = false;
 			}
 		}
 		</script>
@@ -717,7 +729,7 @@ document.getElementById("header_div").innerHTML = "i am";
 		<input type="text" name="intro" id="intro" style="width:300px;height:200px" placeholder=" Hi! I love to..."/>
 	<br>
 	</div><!close I am div>
-	<input type="submit" id="postForm" class="btn submission" value="Next">
+	<input type="submit" id="postSignUp" name="postSignUp" class="btn submission" value="Submit" style="display:none">
 	</form> 
 </body>
 

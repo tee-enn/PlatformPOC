@@ -39,7 +39,7 @@ $cursor1 = $manager->executeQuery('profiles.users', $query1);
 				{
 				if ($document1->PWD == $password)
 					{
-					echo '<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>'.$document1->NME.'</h1></div>';	
+					echo '<div style="height:90px"><h1><a href=""><img class="header_help" src="img/help.jpg"></a>'.$document1->NME.'</h1></div><br>';	
 					}
 				else
 					{
@@ -50,15 +50,15 @@ $cursor1 = $manager->executeQuery('profiles.users', $query1);
 				} //PWD
 			} //NME
 	}
-//           $insRec       = new MongoDB\Driver\BulkWrite;
-//           $insRec->insert(['email' =>$email, 'password'=>$password]);
-//           $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
-//             $result = $manager->executeBulkWrite('profiles.users', $insRec, $writeConcern);
-//          if($result->getInsertedCount()){
-//            $flag = 3;
-//          }else{
-//            $flag = 2;
-//          }
+           $insRec       = new MongoDB\Driver\BulkWrite;
+           $insRec->insert(['email' =>$email, 'password'=>$password]);
+           $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 1000);
+             $result = $manager->executeBulkWrite('profiles.users', $insRec, $writeConcern);
+          if($result->getInsertedCount()){
+            $flag = 3;
+          }else{
+            $flag = 2;
+          }
       }
   }
 
